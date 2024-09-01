@@ -7,7 +7,10 @@
 	"type": "module",
 	"scripts": {
 		"dev": "nodemon src/app.js",
-		"start": "src/index"
+		"start": "src/index",
+		"migration:generate": "yarn typeorm migration:create src/migrations/${NAME} --outputJs",
+		"migration:run": "yarn typeorm migration:run -d src/configs/database.js",
+		"migration:revert": "yarn typeorm migration:revert -d src/configs/database.js"
 	},
 	"dependencies": {
 		"dotenv": "^16.4.5",
