@@ -1,6 +1,6 @@
 import { EntitySchema } from "typeorm";
 
-export const entitySchema = new EntitySchema({
+const Product = new EntitySchema({
 	name: "Product",
 	tableName: "products",
 	columns: {
@@ -9,6 +9,9 @@ export const entitySchema = new EntitySchema({
 			type: "uuid",
 			generated: "uuid",
 		},
+		category_id: {
+			type: "uuid",
+		},
 		code: {
 			type: "varchar",
 			unique: true,
@@ -16,25 +19,25 @@ export const entitySchema = new EntitySchema({
 		name: {
 			type: "varchar",
 		},
-		weigth: {
+		weight: {
 			type: "float",
-			default: 0
+			default: 0,
 		},
 		stock: {
 			type: "int",
-			default: 0
+			default: 0,
 		},
 		unit_price: {
 			type: "float",
-			default: 0
+			default: 0,
 		},
 		sell_price: {
 			type: "float",
-			default: 0
+			default: 0,
 		},
 		description: {
 			type: "text",
-			nullable: true
+			nullable: true,
 		},
 	},
 	relations: {
@@ -49,7 +52,9 @@ export const entitySchema = new EntitySchema({
 		product_order: {
 			target: "ProductOrder",
 			type: "one-to-many",
-			inverseSide: "product"
-		}
+			inverseSide: "product",
+		},
 	},
 });
+
+export default Product;

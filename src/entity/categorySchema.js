@@ -1,6 +1,6 @@
 import { EntitySchema } from "typeorm";
 
-export const CategorySchema = new EntitySchema({
+const Category = new EntitySchema({
 	name: "Category",
 	tableName: "categories",
 	columns: {
@@ -25,3 +25,5 @@ export const CategorySchema = new EntitySchema({
 		},
 	},
 });
+
+export default Category;
